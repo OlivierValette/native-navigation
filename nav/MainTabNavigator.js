@@ -5,6 +5,7 @@ import Colors from '../colors/Colors';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import SensorScreen from '../screens/SensorScreen';
+import OdoricoScreen from '../screens/OdoricoScreen';
 
 const tabBarDefaultOptions = {
     activeTintColor: 'white',
@@ -28,6 +29,18 @@ HomeTab.navigationOptions = {
     tabBarOptions: tabBarDefaultOptions,
 };
 
+const OdoricoTab = createStackNavigator({ screen: OdoricoScreen });
+OdoricoTab.navigationOptions = {
+    title: 'Odorico',
+    tabBarIcon: ( {tintColor} ) => (
+        <TabBarIcon
+            name={ Platform.OS === 'ios' ? 'ios-keypad' : 'md-keypad' }
+            color={tintColor}
+        />
+    ),
+    tabBarOptions: tabBarDefaultOptions,
+};
+
 const SensorTab = createStackNavigator({ screen: SensorScreen });
 SensorTab.navigationOptions = {
     title: 'Sensors',
@@ -42,5 +55,6 @@ SensorTab.navigationOptions = {
 
 export default createBottomTabNavigator({
     HomeTab,
+    OdoricoTab,
     SensorTab
 });
