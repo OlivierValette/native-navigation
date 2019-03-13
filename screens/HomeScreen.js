@@ -3,6 +3,20 @@ import { View, Text, Button } from 'react-native';
 import Colors from '../colors/Colors';
 
 class HomeScreen extends Component {
+
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: Colors.alert,
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      textAlign: 'center',
+      flexGrow: 1,
+    },
+  };
+
   render() {
     return (
       <View>
