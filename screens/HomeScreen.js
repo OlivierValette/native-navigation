@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
+import Colors from '../colors/Colors';
 
 class HomeScreen extends Component {
   render() {
     return (
       <View>
-        <Text>HomeScreen</Text>
+        <Text style={{ fontSize: 18, color: Colors.secondary}}>HomeScreen</Text>
+        <Button
+            title='Sensors'
+            color={Colors.primary}
+            onPress={() => this.props.navigation.navigate('SensorTab')}
+        />
       </View>
     );
   }
