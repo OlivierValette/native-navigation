@@ -21,8 +21,17 @@ class OdoricoScreen extends Component {
   async handleImagePicker() {
     let result = await ImagePicker.launchImageLibraryAsync();
     if (!result.cancelled) {
-      this.setState({ image: result.uri });
-      console.log(result);
+      const data = new FormData();
+      data.append('picture', {
+        uri: result.uri,
+        name: 'test.jpg',
+        type: 'image/jpg'
+      });
+
+      fetch('http://10.26.162.12:3000/api/odorico', {
+        method: 'POST',
+        body: data
+      })
     }
   }
 
